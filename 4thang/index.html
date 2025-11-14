@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="login-container" id="login-container">
+        <div class="prompt">nhập pass đi người đẹp</div>
+        
+        <div class="login-box">
+            <div class="avatar">
+                <img src="https://i.postimg.cc/05LmsDj3/Screenshot-2025-11-12-224907.png" alt="Avatar" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');">
+            </div>
+
+            <div class="keypad-area">
+                <div id="password-display" class="password-display">
+                    <span>-</span><span>-</span><span>-</span><span>-</span><span>-</span><span>-</span><span>-</span><span>-</span>
+                </div>
+                <div class="keypad">
+                    <button class="key" data-key="1">1</button>
+                    <button class="key" data-key="2">2</button>
+                    <button class="key" data-key="3">3</button>
+                    <button class="key" data-key="4">4</button>
+                    <button class="key" data-key="5">5</button>
+                    <button class="key" data-key="6">6</button>
+                    <button class="key" data-key="7">7</button>
+                    <button class="key" data-key="8">8</button>
+                    <button class="key" data-key="9">9</button>
+                    <button class="key pink" data-key="clear">X</button>
+                    <button class="key" data-key="0">0</button>
+                    <button class="key pink" data-key="submit">✓</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
