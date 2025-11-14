@@ -1,0 +1,286 @@
+/* ---- CÀI ĐẶT CHUNG VÀ FONTS ---- */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
+
+:root {
+    --primary-font: 'Montserrat', sans-serif;
+    --romantic-font: 'Great Vibes', cursive;
+    --text-color: #ffffff;
+    --accent-color: #f7a3b7; /* Màu hồng lãng mạn */
+    --glow-color: rgba(247, 163, 183, 0.7);
+    --bg-dark: #1a020a;
+    --bg-glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    background: linear-gradient(-45deg, #0a0104, #2c0b15, #1a020a, #3b0f1e);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    overflow-x: hidden;
+}
+
+/* Hiệu ứng nền chuyển động */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- HEADER & TYPOGRAPHY ---- */
+.main-title {
+    font-family: var(--romantic-font);
+    font-size: 4.5rem;
+    font-weight: normal;
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--glow-color), 0 0 25px var(--glow-color);
+    margin-bottom: 0.5rem;
+}
+
+.names {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---- KHỐI ĐỒNG HỒ (HI-TECH GLASS EFFECT) ---- */
+.timer-wrapper {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background: var(--bg-glass);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.timer-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.timer-box {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.time-unit span {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.1;
+}
+
+.time-unit label {
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---- LỜI NHẮN & CHÂN TRANG ---- */
+.message {
+    margin: 2.5rem 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-text {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---- ALBUM ẢNH ---- */
+.gallery {
+    margin-top: 3rem;
+}
+
+.gallery-title {
+    font-family: var(--romantic-font);
+    font-size: 3rem;
+    font-weight: normal;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--glow-color);
+}
+
+.gallery-grid {
+    display: grid;
+    /* 4 cột trên PC */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Đảm bảo ảnh vuông */
+    object-fit: cover; /* Cắt ảnh vừa vặn */
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: popIn 0.5s ease-out forwards;
+    opacity: 0; /* Bắt đầu ẩn */
+}
+
+/* Hiệu ứng ảnh hiện lên */
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Thêm delay cho từng ảnh để tạo hiệu ứng gợn sóng */
+.gallery-grid img:nth-child(1) { animation-delay: 0.1s; }
+.gallery-grid img:nth-child(2) { animation-delay: 0.2s; }
+.gallery-grid img:nth-child(3) { animation-delay: 0.3s; }
+.gallery-grid img:nth-child(4) { animation-delay: 0.4s; }
+.gallery-grid img:nth-child(5) { animation-delay: 0.5s; }
+.gallery-grid img:nth-child(6) { animation-delay: 0.6s; }
+.gallery-grid img:nth-child(7) { animation-delay: 0.7s; }
+.gallery-grid img:nth-child(8) { animation-delay: 0.8s; }
+
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--glow-color);
+}
+
+/* ---- HIỆU ỨNG TRÁI TIM BAY (Thêm "xịn xò") ---- */
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    opacity: 0;
+    bottom: -20px;
+    animation: rise 10s infinite linear;
+}
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+.heart::before { top: -10px; left: 0; }
+.heart::after { top: 0; left: -10px; }
+
+/* Vị trí và thời gian rơi khác nhau */
+.heart:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.heart:nth-child(2) { left: 30%; animation-duration: 15s; animation-delay: 2s; }
+.heart:nth-child(3) { left: 50%; animation-duration: 10s; animation-delay: 4s; }
+.heart:nth-child(4) { left: 70%; animation-duration: 13s; animation-delay: 1s; }
+.heart:nth-child(5) { left: 90%; animation-duration: 11s; animation-delay: 3s; }
+
+@keyframes rise {
+    0% { bottom: -20px; opacity: 0; transform: rotate(0deg) scale(0.5); }
+    10% { opacity: 0.8; }
+    100% { bottom: 105vh; opacity: 0; transform: rotate(720deg) scale(1.2); }
+}
+
+
+/* ---- RESPONSIVE CHO ĐIỆN THOẠI ---- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    
+    .main-title {
+        font-size: 3rem;
+    }
+    .names {
+        font-size: 1.1rem;
+    }
+
+    .timer-wrapper {
+        padding: 1.5rem;
+    }
+
+    .time-unit span {
+        font-size: 2.5rem;
+    }
+    .time-unit label {
+        font-size: 0.7rem;
+    }
+
+    /* 2 cột trên điện thoại */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timer-box {
+        gap: 1rem;
+    }
+    .time-unit {
+        /* Đảm bảo 2 đơn vị trên 1 hàng */
+        flex-basis: 40%; 
+    }
+    .time-unit span {
+        font-size: 2.2rem;
+    }
+}
