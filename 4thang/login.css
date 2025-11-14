@@ -1,0 +1,204 @@
+/* ---- CÀI ĐẶT CHUNG, FONT VÀ NỀN ---- */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
+
+:root {
+    --primary-font: 'Montserrat', sans-serif;
+    --romantic-font: 'Great Vibes', cursive;
+    --accent-color: #f7a3b7; /* Màu hồng lãng mạn (từ home.css) */
+    --glow-color: rgba(247, 163, 183, 0.7);
+    --bg-glass: rgba(255, 255, 255, 0.05);
+    --border-glass: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--primary-font);
+    color: white;
+    /* Dùng chung nền với trang home cho đồng bộ */
+    background: linear-gradient(-45deg, #0a0104, #2c0b15, #1a020a, #3b0f1e);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+/* Hiệu ứng nền chuyển động (từ home.css) */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---- KHUNG ĐĂNG NHẬP ---- */
+.login-container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px; /* Tăng nhẹ độ rộng */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* "nhập pass đi người đẹp" */
+.prompt {
+    font-family: var(--romantic-font); /* Font lãng mạn */
+    font-size: 3rem; /* To, đẹp */
+    font-weight: normal;
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--glow-color), 0 0 25px var(--glow-color);
+    margin-bottom: 2rem;
+}
+
+/* Khung kính mờ (Glassmorphism) */
+.login-box {
+    display: flex;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 2rem;
+    gap: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center; /* Căn giữa avatar và bàn phím */
+}
+
+/* ---- AVATAR (Hình tròn) ---- */
+.avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%; /* Tròn, hiện đại, lãng mạn */
+    border: 2px solid var(--accent-color);
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px var(--glow-color); /* Phát sáng */
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar.no-image {
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    color: var(--accent-color);
+    line-height: 1.4;
+    border-color: var(--accent-color);
+}
+.avatar.no-image::before {
+    content: 'avatar.jpg';
+}
+
+
+/* ---- BÀN PHÍM (Hiện đại) ---- */
+.keypad-area {
+    width: 100%;
+}
+
+.password-display {
+    background: rgba(0, 0, 0, 0.2); /* Nền tối */
+    border: 1px solid var(--border-glass);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 2rem;
+    letter-spacing: 0.75rem; /* Giãn cách ký tự */
+    text-align: center;
+    color: #eee;
+    margin-bottom: 1.5rem;
+    font-family: var(--primary-font);
+    font-weight: 300;
+    height: auto; /* Tự động chiều cao */
+    line-height: 1.5; /* Căn giữa ký tự theo chiều dọc */
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem; /* Tăng khoảng cách */
+}
+
+/* Nút bấm hình tròn */
+.key {
+    font-family: var(--primary-font);
+    font-weight: 400;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.1); /* Kính */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Tròn */
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+    aspect-ratio: 1 / 1; /* Luôn là hình tròn hoàn hảo */
+    padding: 0;
+}
+
+.key:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px var(--glow-color); /* Phát sáng khi hover */
+}
+
+.key:active {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0.95);
+}
+
+.key.pink {
+    background: var(--accent-color);
+    color: #1a020a; /* Chữ tối trên nền hồng */
+    font-weight: 700;
+}
+
+.key.pink:hover {
+    background: #ffffff; /* Sáng lên khi hover */
+    color: #1a020a;
+    box-shadow: 0 0 25px var(--glow-color);
+}
+
+/* ---- HIỆU ỨNG LỖI ---- */
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 480px) {
+    .login-box {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    .prompt {
+        font-size: 2.5rem;
+    }
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+    .keypad {
+        gap: 1rem;
+    }
+    .password-display {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+    }
+}
